@@ -1,3 +1,4 @@
+--todo: bug with gg
 return {
 	"statuscol.nvim",
 	after = function()

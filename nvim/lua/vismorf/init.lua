@@ -1,3 +1,5 @@
+--todo: bug with repeated j(cause by animate) on vsmrf/_packages.nix
+--https://github.com/saghen/blink.cmp/blob/main/repro.lua
 require("lze").load({
 	{ import = "vismorf.cmp" },
 	{ import = "vismorf.format" },

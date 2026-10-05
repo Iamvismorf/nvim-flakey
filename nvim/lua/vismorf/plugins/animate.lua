@@ -2,6 +2,7 @@ local map = vim.keymap.set
 
 map("n", "H", ':lua MiniAnimate.execute_after("scroll", "normal! Hzz")<CR>', { silent = true })
 map("n", "L", ':lua MiniAnimate.execute_after("scroll", "normal! Lzz")<CR>', { silent = true })
+
 return {
 	"mini.animate",
 	after = function()

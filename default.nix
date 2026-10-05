@@ -36,7 +36,8 @@ in {
         fileset = fs.fromSource (lib.sources.cleanSource ./nvim);
       };
 
-      impure = "/home/vsmrf/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
+      # impure = "/home/vsmrf/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
+      impure = "~/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
     };
     #todo: no idea what this is
     startAttrs = {
