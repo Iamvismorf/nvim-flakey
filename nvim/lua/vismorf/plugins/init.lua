@@ -1,4 +1,5 @@
--- see /nix/store/mnw-configDir/**/{opt, start}
+-- see /nix/store/hash-mnw-configDir/**/{opt, start}
+-- to get the hash use :lua vim.print(mnw)
 require("vismorf.plugins.rootf").setup({
 	rootmarkers = { ".envrc", "flake.nix", "shell.nix", ".gitignore" },
 	ignoreDirs = { "%.git*", ".direnv", "build" },
@@ -12,6 +13,7 @@ require("lze").load({
 	-- { import = "vismorf.plugins.bufferline" },
 	{ import = "vismorf.plugins.bufjump" },
 	{ import = "vismorf.plugins.context" },
+	{ import = "vismorf.plugins.crates" },
 	{ import = "vismorf.plugins.statuscol" },
 	{ import = "vismorf.plugins.flash" },
 	{ import = "vismorf.plugins.fzf-lua" },

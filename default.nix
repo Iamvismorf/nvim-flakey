@@ -85,6 +85,7 @@ in {
           yazi-nvim
           bufjump-nvim
           nvim-highlight-colors
+          crates-nvim
           ;
       }
       ++ [
