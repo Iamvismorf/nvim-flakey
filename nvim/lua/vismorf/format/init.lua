@@ -11,6 +11,10 @@ return {
 				nix = { "alejandra" },
 				sh = { "shfmt" },
 				qml = { "qmlformat" },
+				toml = { "taplo" },
+				yaml = { "yq" },
+				json = { "jq" },
+				jsonc = { "jq" },
 			},
 
 			format_on_save = {

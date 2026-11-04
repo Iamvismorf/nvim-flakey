@@ -1,3 +1,4 @@
+-- todo: show live_grep search path/root path
 -- '-- *.lua *.nix' to filter by filetype
 return {
 	"fzf-lua",
