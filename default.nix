@@ -5,6 +5,7 @@
 }: let
   fs = lib.fileset;
   pluh = import ./+npins;
+  lib' = import ./lib;
 in {
   aliases = ["vim"];
   initLua = ''
@@ -36,8 +37,8 @@ in {
         fileset = fs.fromSource (lib.sources.cleanSource ./nvim);
       };
 
-      # impure = "/home/vsmrf/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
-      impure = "~/Greenhouse/modules/hjem/users/vsmrf/_config/neovim/nvim";
+      # impure = "~/Greenhouse/modules/hjem/users/vsmrf/_config/neovim/nvim";
+      impure = lib'.toAbsolutePath ./nvim;
     };
     #todo: no idea what this is
     startAttrs = {

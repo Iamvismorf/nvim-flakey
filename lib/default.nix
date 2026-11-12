@@ -1,0 +1,3 @@
+{
+  toAbsolutePath = path: (toString path);
+}
