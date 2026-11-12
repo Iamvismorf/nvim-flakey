@@ -37,7 +37,7 @@ in {
       };
 
       # impure = "/home/vsmrf/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
-      impure = "~/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
+      impure = "~/Greenhouse/modules/hjem/users/vsmrf/_config/neovim/nvim";
     };
     #todo: no idea what this is
     startAttrs = {
