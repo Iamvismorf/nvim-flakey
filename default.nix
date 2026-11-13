@@ -94,9 +94,9 @@ in {
         #todo: remove this after upstream is merged
         (
           pkgs.vimPlugins.blink-cmp.overrideAttrs
-          (_: _: {
+          {
             src = pluh.blink-cmp.outPath;
-          })
+          }
         )
       ];
   };
