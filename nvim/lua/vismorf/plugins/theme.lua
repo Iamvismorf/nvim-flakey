@@ -2,7 +2,7 @@ vim.o.cursorline = true
 
 return {
 	{
-		"zen.nvim",
+		"zen-nvim",
 		lazy = false,
 		priority = 1000,
 		after = function()

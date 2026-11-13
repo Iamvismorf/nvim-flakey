@@ -11,13 +11,16 @@
   }: let
     systems = ["x86_64-linux"];
     eachSystem = fn: nixpkgs.lib.genAttrs systems fn;
+    lib' = import ./lib {
+      lib = nixpkgs.lib;
+    };
   in {
     packages = eachSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       default = self.packages.${system}.nvim;
 
-      nvim = mnw.lib.wrap {inherit pkgs;} ./default.nix;
+      nvim = mnw.lib.wrap {inherit pkgs lib';} ./default.nix;
     });
   };
 }

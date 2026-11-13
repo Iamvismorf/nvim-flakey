@@ -1,12 +1,9 @@
 {
   pkgs,
   lib,
+  lib',
   ...
-}: let
-  fs = lib.fileset;
-  pluh = import ./+npins;
-  lib' = import ./lib;
-in {
+}: {
   aliases = ["vim"];
   initLua = ''
     require("vismorf")
@@ -30,8 +27,13 @@ in {
       pkgs.neocmakelsp
     ];
   enable = true;
-  plugins = {
-    dev.myConfig = {
+  plugins = let
+    sources = import ./+npins;
+    pluh = lib'.npins2plugins sources;
+  in {
+    dev.myConfig = let
+      fs = lib.fileset;
+    in {
       pure = fs.toSource {
         root = ./nvim;
         fileset = fs.fromSource (lib.sources.cleanSource ./nvim);
@@ -57,14 +59,8 @@ in {
           ;
       }
       ++ [
-        {
-          name = "zen.nvim";
-          src = pluh.zen-nvim.outPath;
-        }
-        {
-          name = "south-nvim";
-          src = pluh.south-nvim.outPath;
-        }
+        (pluh.zen-nvim null)
+        (pluh.south-nvim null)
       ];
     opt =
       builtins.attrValues {

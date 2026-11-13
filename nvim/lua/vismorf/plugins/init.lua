@@ -1,4 +1,4 @@
--- see /nix/store/hash-mnw-configDir/**/{opt, start}
+-- see /nix/store/hash-mnw-configDir/**/{opt, start} correspond to the first line in a plugin.lua
 -- to get the hash use :lua vim.print(mnw)
 require("vismorf.plugins.rootf").setup({
 	rootmarkers = { ".envrc", "flake.nix", "shell.nix", ".gitignore" },
