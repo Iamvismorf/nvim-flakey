@@ -1,9 +1,10 @@
 {
   pkgs,
   lib,
-  lib',
   ...
-}: {
+}: let
+  lib' = import ./lib {inherit lib;};
+in {
   aliases = ["vim"];
   initLua = ''
     require("vismorf")
