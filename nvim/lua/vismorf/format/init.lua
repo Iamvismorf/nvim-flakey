@@ -12,7 +12,7 @@ return {
 				sh = { "shfmt" },
 				qml = { "qmlformat" },
 				toml = { "taplo" },
-				yaml = { "yq" },
+				yaml = { "yamlfmt" },
 				json = { "jq" },
 				jsonc = { "jq" },
 			},
