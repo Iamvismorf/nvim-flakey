@@ -9,6 +9,7 @@ vim.o.updatetime = 400
 vim.o.numberwidth = 3
 vim.o.statuscolumn = ""
 vim.o.showtabline = 0
+vim.o.virtualedit = "none"
 
 vim.wo.nu = true
 vim.wo.relativenumber = true
