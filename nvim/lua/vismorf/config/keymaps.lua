@@ -1,10 +1,18 @@
 -- remap means if a key you map to is itself mapped to something else, that second mapping will also trigger.
-local map = vim.keymap.set
+local map = function(mode, lhs, rhs, opts)
+	if type(lhs) == "table" then
+		for _, keymap in ipairs(lhs) do
+			vim.keymap.set(mode, keymap, rhs, opts)
+		end
+	else
+		vim.keymap.set(mode, lhs, rhs, opts)
+	end
+end
 local group = vim.api.nvim_create_augroup("cmdwindow", {})
 
 -- highlights from %s not available
 -- sadge not planned see: https://github.com/neovim/neovim/issues/30340#event-27478325978
-map("n", ":", "q:i")
+map("n", { ":", ";" }, "q:i")
 map("n", "<esc>", function()
 	if vim.fn.getcmdwintype() ~= "" then
 		vim.cmd.close()
@@ -40,10 +48,7 @@ map({ "n", "v", "x" }, "<leader>D", '"+D')
 map("n", "<leader>cc", "gcc", { remap = true })
 map("v", "<leader>c", "gc", { remap = true })
 
-map("n", "ZZ", "<nop>")
-map("n", "<C-e>", "<nop>")
-map("n", "<C-y>", "<nop>")
-map("n", "<C-z>", "<nop>")
+map("n", { "ZZ", "<C-e>", "<C-y>", "<C-z>" }, "<nop>")
 
 map("n", "<leader>x", function()
 	require("snacks").bufdelete.delete()
