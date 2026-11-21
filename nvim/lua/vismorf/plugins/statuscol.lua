@@ -1,4 +1,3 @@
---todo: bug with gg
 return {
 	"statuscol.nvim",
 	after = function()
@@ -61,7 +60,7 @@ return {
 									line = "%#LineNr#" .. line
 								end
 
-								if winline >= norm_s_row and winline <= norm_e_row then
+								if winline >= norm_s_row and (winline <= norm_e_row or norm_e_row < 0) then
 									line = line:gsub("%%#LineNr#", "")
 									return "%#CursorLineNr#" .. line
 								end
