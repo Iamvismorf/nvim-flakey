@@ -11,8 +11,6 @@ return {
 		},
 	},
 	after = function()
-		require("yazi").setup({
-			open_for_directories = false,
-		})
+		require("yazi").setup({})
 	end,
 }

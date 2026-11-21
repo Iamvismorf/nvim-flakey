@@ -1,4 +1,5 @@
--- todo: show live_grep search path/root path
+-- todo: path shortener
+-- todo: replace this with quickfix
 -- '-- *.lua *.nix' to filter by filetype
 return {
 	"fzf-lua",
@@ -7,13 +8,15 @@ return {
 		{
 			"<leader>f",
 			function()
-				require("fzf-lua").files()
+				require("fzf-lua").files({ cwd = _G.root })
+				vim.api.nvim_echo({ { "seach: " .. _G.root, "MsgArea" } }, false, {})
 			end,
 		},
 		{
 			"<leader>g",
 			function()
-				require("fzf-lua").live_grep({ resume = true, no_esc = true })
+				require("fzf-lua").live_grep({ cwd = _G.root, resume = true, no_esc = true })
+				vim.api.nvim_echo({ { "grep: " .. _G.root, "MsgArea" } }, false, {})
 			end,
 		},
 		{

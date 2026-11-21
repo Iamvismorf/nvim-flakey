@@ -1,4 +1,5 @@
 --todo: preserve buffer cursor position when switching buffers
+--todo: better way to navigate opened buffers
 --https://github.com/saghen/blink.cmp/blob/main/repro.lua
 require("lze").load({
 	{ import = "vismorf.cmp" },
