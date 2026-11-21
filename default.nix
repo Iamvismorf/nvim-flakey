@@ -83,7 +83,7 @@ in {
           yazi-nvim
           bufjump-nvim
           nvim-highlight-colors
-          crates-nvim #todo: doesn't work
+          crates-nvim
           ;
       }
       ++ [

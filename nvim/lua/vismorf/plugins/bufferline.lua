@@ -1,11 +1,9 @@
---todo: move highlights to theme
 vim.o.showtabline = 2
 
 return {
 	"nvim-cokeline",
 	event = "DeferredUIEnter",
 
-	--todo: add shift-t like in browser???
 	keys = {
 		{
 			"<S-k>",

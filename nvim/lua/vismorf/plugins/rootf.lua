@@ -1,4 +1,3 @@
--- todo: add a command that prints root directory
 -- todo: yazi when "vim" in terminal
 local M = {}
 

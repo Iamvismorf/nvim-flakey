@@ -1,4 +1,4 @@
---todo: bug with repeated j(cause by animate) on vsmrf/_packages.nix
+--todo: preserve buffer cursor position when switching buffers
 --https://github.com/saghen/blink.cmp/blob/main/repro.lua
 require("lze").load({
 	{ import = "vismorf.cmp" },
