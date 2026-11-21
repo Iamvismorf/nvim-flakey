@@ -1,4 +1,3 @@
--- todo: yazi when "vim" in terminal
 local M = {}
 
 M.defaults = {
@@ -8,7 +7,7 @@ M.defaults = {
 local cached_roots = {}
 local augroup = vim.api.nvim_create_augroup("vismorf/rootf", {})
 local last_root = nil
-local root = nil
+_G.root = nil
 
 function M._enable()
 	local last_dir = nil
@@ -23,7 +22,6 @@ function M._enable()
 
 			local current_file = ev.file
 			if current_file == "" then
-				-- vim.cmd.edit(vim.fn.getcwd()) -- without this yazi opens in the root instead of the directory.
 				current_file = vim.fn.getcwd()
 			end
 			local parent_dir = vim.fs.dirname(current_file)
@@ -33,7 +31,7 @@ function M._enable()
 				return
 			end
 
-			root = cached_roots[current_file]
+			_G.root = cached_roots[current_file]
 
 			if root == nil then
 				local should_ignore = vim.tbl_contains(M.config.ignoreDirs, function(v)
@@ -43,27 +41,27 @@ function M._enable()
 					return
 				end
 
-				root = vim.fs.find(
+				_G.root = vim.fs.find(
 					M.config.rootmarkers,
 					{ upward = true, path = current_file, stop = vim.fn.expand("~") }
 				)[1]
 
-				if root == nil then
-					root = current_file
+				if _G.root == nil then
+					_G.root = current_file
 					-- return
 				end
-				root = vim.fs.dirname(root)
+				_G.root = vim.fs.dirname(_G.root)
 
-				cached_roots[current_file] = root
+				cached_roots[current_file] = _G.root
 			end
 			last_dir = parent_dir
-			last_root = root
+			last_root = _G.root
 
-			vim.fn.chdir(root)
+			-- vim.fn.chdir(root)
 		end,
 	})
 	vim.api.nvim_create_user_command("Root", function()
-		vim.print(root)
+		vim.print(_G.root)
 	end, {})
 end
 
